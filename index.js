@@ -1,0 +1,69 @@
+const https = require('https'); //protocol the server works on
+const fs = require('fs'); //file system
+const hbs = require('hbs'); //handlebars html templating
+const express = require('express'); //allows to create the web app
+const bodyParser = require("body-parser");
+const app = express();
+
+
+
+const options = {
+	  key: fs.readFileSync('/etc/letsencrypt/live/ammecha.com/privkey.pem'),
+	  cert: fs.readFileSync('/etc/letsencrypt/live/ammecha.com/fullchain.pem')
+};
+
+var server = https.createServer(options, app);
+var ios = io(server);
+
+
+app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+}));
+app.use(cookieParser("cuoots"));
+
+
+hbs.registerPartials(__dirname + '/views/partials');
+app.set("view_engine", "hbs");
+
+//this is statically adding all the pages to the server you have add the .html which is annoying
+
+app.use(express.static(__dirname + '/public'));
+
+hbs.registerHelper("year", ()=>{
+	return new Date().getFullYear();
+});
+app.use(bodyParser.json());
+
+
+hbs.registerHelper('list', function(items, options) {
+  var out = "<ul>";
+
+  for(var i=0, l=people.length; i<l; i++) {
+    out = out + "<li>" + people[i].firstName + " "+ people[i].lastName + "</li>";
+  }
+
+  return out + "</ul>";
+});
+
+
+
+app.get('/', (req, res) => {
+	console.log("User joined");
+	res.render("page.hbs", {
+		title: "Home",
+		description: "We connect influnecers to business",
+		keywords: "Fun, Influncer, Company",
+		css: "",
+		name: 'Aaron',
+		script: '',
+		content: get_content("home")
+
+	});
+});
+function get_content(title){
+	return fs.readFileSync("content/" + title+".html");
+}
+
+
+server.listen(443);
