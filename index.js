@@ -8,19 +8,18 @@ const app = express();
 
 
 const options = {
-	  key: fs.readFileSync('/etc/letsencrypt/live/ammecha.com/privkey.pem'),
-	  cert: fs.readFileSync('/etc/letsencrypt/live/ammecha.com/fullchain.pem')
+	  key: fs.readFileSync('/etc/letsencrypt/live/barackplumbing.com/privkey.pem'),
+	  cert: fs.readFileSync('/etc/letsencrypt/live/barackplumbing.com/fullchain.pem')
 };
 
 var server = https.createServer(options, app);
-var ios = io(server);
 
 
 app.use( bodyParser.json() );       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 }));
-app.use(cookieParser("cuoots"));
+
 
 
 hbs.registerPartials(__dirname + '/views/partials');
