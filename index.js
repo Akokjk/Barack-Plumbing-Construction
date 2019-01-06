@@ -48,10 +48,16 @@ hbs.registerHelper('list', function(items, options) {
 
 
 app.get('/', (req, res) => {
-	res.render("public/home.hbs");
+	res.render("home.hbs");
 });
 app.get('/reviews', (req, res) => {
-	res.render("public/reviews.hbs");
+	res.render("reviews.hbs");
+});
+app.get('/contact', (req, res) => {
+	res.render("contact.hbs");
+});
+app.get('/services', (req, res) => {
+	res.render("services.hbs");
 });
 function get_content(title){
 	return fs.readFileSync("content/" + title+".html");
