@@ -60,7 +60,7 @@ app.get('/services', (req, res) => {
 	res.render("services.hbs");
 });
 app.get('/sitemap', (req, res) => {
-	res.send("sitemap.xml");
+	res.send(fs.readFileSync('public/sitemap.xml'));
 });
 function get_content(title){
 	return fs.readFileSync("content/" + title+".html");
