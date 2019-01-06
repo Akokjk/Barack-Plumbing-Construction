@@ -1,0 +1,23 @@
+{
+  "name": "barackplumbing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Akokjk/Barack-Plumbing-Construction.git"
+  },
+  "keywords": [
+    "plumbing",
+    "site"
+  ],
+  "author": "Aaron barck",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Akokjk/Barack-Plumbing-Construction/issues"
+  },
+  "homepage": "https://github.com/Akokjk/Barack-Plumbing-Construction#readme"
+}
