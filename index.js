@@ -49,7 +49,7 @@ hbs.registerHelper('list', function(items, options) {
 
 app.get('/', (req, res) => {
 	console.log("User joined");
-	res.render(fs.readFileSync("public/home.html"));
+	res.render("public/home.html");
 });
 function get_content(title){
 	return fs.readFileSync("content/" + title+".html");
