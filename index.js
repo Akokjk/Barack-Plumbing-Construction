@@ -48,8 +48,10 @@ hbs.registerHelper('list', function(items, options) {
 
 
 app.get('/', (req, res) => {
-	console.log("User joined");
 	res.render("public/home.hbs");
+});
+app.get('/reviews', (req, res) => {
+	res.render("public/reviews.hbs");
 });
 function get_content(title){
 	return fs.readFileSync("content/" + title+".html");
