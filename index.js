@@ -49,16 +49,7 @@ hbs.registerHelper('list', function(items, options) {
 
 app.get('/', (req, res) => {
 	console.log("User joined");
-	res.render("page.hbs", {
-		title: "Home",
-		description: "We connect influnecers to business",
-		keywords: "Fun, Influncer, Company",
-		css: "",
-		name: 'Aaron',
-		script: '',
-		content: get_content("home")
-
-	});
+	res.send("public/home.html");
 });
 function get_content(title){
 	return fs.readFileSync("content/" + title+".html");
