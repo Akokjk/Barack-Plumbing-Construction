@@ -1,32 +1,13 @@
-const http = require('https'); //protocol the server works on
-const fs = require('fs'); //file system
-const hbs = require('hbs'); //handlebars html templating
-const express = require('express'); //allows to create the web app
-const bodyParser = require("body-parser");
-const app = express();
+// set up plain http server
+var http = express.createServer();
 
+// set up a route to redirect http to https
+http.get('*', function(req, res) {  
+    res.redirect('https://' + req.headers.host + req.url);
 
+    // Or, if you don't want to automatically detect the domain name from the request header, you can hard code it:
+    // res.redirect('https://example.com' + req.url);
+})
 
-
-
-var server = http.createServer(app);
-
-
-
-
-
-hbs.registerPartials(__dirname + '/views/partials');
-app.set("view_engine", "hbs");
-
-//this is statically adding all the pages to the server you have add the .html which is annoying
-
-
-
-app.get('*', (req, res) => {
-	res.redirect('https://barackplumbing.com');
-});
-
-
-
-
-server.listen(80);
+// have it listen on 8080
+http.listen(8080);
