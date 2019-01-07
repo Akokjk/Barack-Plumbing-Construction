@@ -2,26 +2,25 @@ body{
 	background-color: white;
 }
 #base{
-	background-color: #FC7307;
+	
 }
 #foot{
-	background-color: #263409; 
+	
 }
 #base h1{
-	font-family: 'Bungee';
+	
 	color: #263409;
 	
 }
 #base p{
 	color: #5A18C9;
 	font-size: 130%; 
-	font-family: 'Roboto';
+	
 
 }
 #base h3{
 	text-align: left;
-	color: #263409; 
-	font-family: 'Alfa Slab One';
+	
 		
 }
 
@@ -45,11 +44,9 @@ body{
 }
 #body{
 	background-color: white;
-	font-family: 'PT Serif';
-	color: #1B3409; 
 	font-size: 200%; 
 }
 #foot{
-	background-color: #616161;
-    color: #98CA32;
+	
+    
 }
