@@ -22,7 +22,7 @@ app.set("view_engine", "hbs");
 
 
 
-app.get('/', (req, res) => {
+app.get('', (req, res) => {
 	res.redirect('https://barackplumbing.com');
 });
 
