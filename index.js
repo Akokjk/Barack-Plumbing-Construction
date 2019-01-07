@@ -65,6 +65,9 @@ app.get('/contact', (req, res) => {
 app.get('/services', (req, res) => {
 	res.render("services.hbs");
 });
+app.get('/about', (req, res) => {
+	res.render("aboutus.hbs");
+});
 app.get('/sitemap', (req, res) => {
 	res.send(fs.readFileSync('public/sitemap.xml'));
 });
